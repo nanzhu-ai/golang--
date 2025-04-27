@@ -21,9 +21,10 @@ func AESEncrypt(src, key []byte) []byte {
 
 	blockMode := cipher.NewCBCEncrypter(block, key[:block.BlockSize()])
 
+	//数据加密
 	dst := src
-
 	blockMode.CryptBlocks(dst, src)
+
 	return dst
 }
 
@@ -38,6 +39,7 @@ func AESDecrypt(src, key []byte) []byte {
 	//创建分组连接模式
 	blockMode := cipher.NewCBCDecrypter(blcok, key[:blcok.BlockSize()])
 
+	//数据解密
 	dst := src
 	blockMode.CryptBlocks(dst, src)
 
